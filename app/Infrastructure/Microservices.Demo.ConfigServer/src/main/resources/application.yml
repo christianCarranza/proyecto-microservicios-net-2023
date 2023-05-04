@@ -7,9 +7,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Scorpius86/Microservices-Config-Repository.git
+          uri: https://github.com/christianCarranza/proyecto-microservicios-net-2023.git
           search-paths:
-            - '{application}'
+            - '/app/Infrastructure/Microservices.Config.Repository/{application}'
           defaultLabel: master
 eureka:
   instance:
