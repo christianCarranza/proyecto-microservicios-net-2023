@@ -58,6 +58,25 @@ services:
     networks:
       - backend
     restart: on-failure
+########################################################## Microservices.Demo.Report.API #################################################################################
+  Microservices.Demo.Report.API:
+    image: ${DOCKER_REGISTRY-}microservicesdemoreportapi
+    #container_name: Microservices.Demo.Report.API
+    mem_limit: 256m
+    mem_reservation: 128M
+    cpus: 0.25
+    deploy:
+      replicas: 3
+    environment:      
+      - ASPNETCORE_URLS=http://::80
+    ports:
+      - 80      
+    build:
+      context: .
+      dockerfile: app/Domain/Microservices.Demo.Report.API/Dockerfile
+    networks:
+      - backend
+    restart: on-failure
 ########################################################## Client Angular #################################################################################
   microservices.demo.client.web:
     container_name: microservices.demo.client.web
